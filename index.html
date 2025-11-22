@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brick Breaker Deluxe - Responsive</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>BRICK BREAKER DELUXE</h1>
+    <canvas id="gameCanvas" width="700" height="600"></canvas>
+    
+    <div id="mobile-controls">
+        <button id="left-btn" class="touch-button" ontouchstart="movePaddle(-1, true)" ontouchend="movePaddle(-1, false)" onmousedown="movePaddle(-1, true)" onmouseup="movePaddle(-1, false)">
+            &lt; LEFT
+        </button>
+        <button id="right-btn" class="touch-button" ontouchstart="movePaddle(1, true)" ontouchend="movePaddle(1, false)" onmousedown="movePaddle(1, true)" onmouseup="movePaddle(1, false)">
+            RIGHT &gt;
+        </button>
+    </div>
+
+    <div class="instructions">
+        <p>Use **Left Arrow** and **Right Arrow** keys to move the paddle (Now **faster!**).</p>
+        <p>Press **Enter** to restart.</p>
+        <p style="color: #ff9900;">**Tip:** Bricks on higher rows are worth more points!</p>
+    </div>
+
+    <!-- ===================================================
+         2. JAVASCRIPT GAME LOGIC (Responsive & Touch Enabled)
+    =================================================== -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+
+        /* ===================================================
+           1. CSS STYLES: RESPONSIVE & Aesthetics
+        =================================================== */
+        :root {
+            /* Define the canonical (design) size of the canvas for scaling */
+            --canvas-max-width: 700px;
+            --canvas-aspect-ratio: 600 / 700; /* Height / Width */
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #1a1a2e;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            user-select: none;
+            padding: 20px 10px; /* Add padding for mobile view */
+        }
+
+        h1 {
+            color: #4cc9f0;
+            margin-bottom: 10px;
+            font-size: clamp(1.5rem, 5vw, 2.5rem); /* Responsive text size */
+        }
+
+        #gameCanvas {
+            border: 5px solid #000;
+            box-shadow: 0 0 20px rgba(76, 201, 240, 0.8); 
+            background-color: #000000;
+            display: block;
+            
+            /* --- RESPONSIVE LOGIC --- */
+            max-width: var(--canvas-max-width);
+            width: 95vw; /* Take up 95% of viewport width */
+            /* Height is calculated to maintain aspect ratio */
+            height: calc(95vw * var(--canvas-aspect-ratio));
+            max-height: 600px;
+        }
+        
+        .instructions {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333366;
+            border-radius: 8px;
+            text-align: center;
+            line-height: 1.5;
+            max-width: var(--canvas-max-width);
+            width: 95vw;
+        }
+        .instructions p {
+            margin: 5px 0;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+        }
+
+        /* --- Mobile Controls Container --- */
+        #mobile-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 95vw;
+            max-width: var(--canvas-max-width);
+            margin-top: 15px;
+        }
+
+        .touch-button {
+            padding: 15px 30px;
+            background-color: #1e90ff; /* Blue button */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #105a8b;
+            transition: all 0.1s ease;
+            width: 45%;
+        }
+
+        .touch-button:active {
+            box-shadow: 0 1px 0 #105a8b;
+            transform: translateY(3px);
+        }
+
+        /* Hide the mobile controls on larger screens */
+        @media (min-width: 768px) {
+            #mobile-controls {
+                display: none;
+            }
+        }
+        /* Show the mobile controls on smaller screens */
+        @media (max-width: 767px) {
+            .instructions p:first-child {
+                display: none; /* Hide keyboard instructions on mobile */
+            }
+        }
+    
